@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col">
+    <input
+      type="text"
+      placeholder="{{this.placeHolder}}"
+      class="form-control"
+      (keyup.enter)="this.emitValue(txtValue.value)"
+      #txtValue
+    />
+  </div>
+</div>
