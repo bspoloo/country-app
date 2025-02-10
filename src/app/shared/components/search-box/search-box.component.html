@@ -4,8 +4,11 @@
       type="text"
       placeholder="{{this.placeHolder}}"
       class="form-control"
-      (keyup.enter)="this.emitValue(txtValue.value)"
+      (keypress)="this.onKeyPress(txtValue.value)"
+      [value]="this.initialValue"
       #txtValue
     />
   </div>
 </div>
+
+<!-- (keyup.enter)="this.emitValue(txtValue.value)" -->

@@ -1,12 +1,23 @@
-<h2>By Country name</h2>
-<hr>
-  <shared-search-box placeHolder="Look a country" (onValue)="this.searchByRegion($event)"></shared-search-box>
+<h2>By Country region</h2>
+<hr />
+<!-- <shared-search-box placeHolder="Look a country" (onValue)="this.searchByRegion($event)"></shared-search-box> -->
+<div class="container-buttons">
+  <button
+    class="btn mx-2"
+    [ngClass]="{'btn out-line-primary' : this.selectedRegion === region || this.initialValue === region}"
+    *ngFor="let region of this.regions"
+    (click)="this.searchByRegion(region)"
+  >
+    {{ region }}
+  </button>
+</div>
 
-  <div class="row">
-    <div class="col">
-      <hr>
-      <countries-country-table [countries]="this.contries"></countries-country-table>
-    </div>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <countries-country-table
+      [countries]="this.countries"
+    ></countries-country-table>
   </div>
-
-
+</div>

@@ -1,12 +1,19 @@
 <h2>By Capital</h2>
-<hr>
-  <shared-search-box placeHolder="Look a capital" (onValue)="this.searchByCapital($event)"></shared-search-box>
+<hr />
+<shared-search-box
+  placeHolder="Look a capital"
+  (onValue)="this.searchByCapital($event)"
+  [initialValue]="this.initialValue"
+></shared-search-box>
 
-  <div class="row">
-    <div class="col">
-      <hr>
-      <countries-country-table [countries]="this.contries"></countries-country-table>
+<div class="row">
+  <div class="col">
+    <hr />
+    <countries-country-table
+      [countries]="this.contries"
+    ></countries-country-table>
+    <div>
+      <shared-loading-page *ngIf="this.isLoading"></shared-loading-page>
     </div>
   </div>
-
-
+</div>

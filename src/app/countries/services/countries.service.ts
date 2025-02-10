@@ -6,6 +6,7 @@ import { API_URI } from '../constants/API';
 import { HttpClient } from '@angular/common/http';
 import { ISearchByData } from '../interfaces/ISearchByData';
 import { FactorySearch } from '../classes/factories/factory-search';
+import { CacheStorage } from '../classes/cache-storage';
 
 
 @Injectable({
@@ -13,9 +14,11 @@ import { FactorySearch } from '../classes/factories/factory-search';
 })
 export class CountriesService {
   private factorySearcher : FactorySearch;
+  public cacheStorage : CacheStorage;
 
   constructor(private http : HttpClient) {
     this.factorySearcher = new FactorySearch();
+    this.cacheStorage = new CacheStorage();
   }
 
   public search(term : string, param : string): Observable<Country[]>{

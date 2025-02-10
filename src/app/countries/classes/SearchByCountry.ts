@@ -1,4 +1,4 @@
-import { catchError, Observable, of } from "rxjs";
+import { catchError, delay, Observable, of } from "rxjs";
 import { Country } from "../interfaces/countryInterface";
 import { ISearchByData } from "../interfaces/ISearchByData";
 import { HttpClient } from "@angular/common/http";
@@ -9,6 +9,7 @@ export class SearchByCountry implements ISearchByData{
       return http.get<Country[]>(`${API_URI}/name/${term}?fullText=true`)
         .pipe(
           catchError(error => {
+            delay(2000)
             console.log(error);
             return of([]);
           } )
